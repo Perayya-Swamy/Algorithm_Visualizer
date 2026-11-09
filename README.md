@@ -54,5 +54,6 @@ AlgoLab/
 - Bubble / Selection / Insertion Sort: worst-case time O(n²).
 - Linear Search: worst-case time O(n).
 - Binary Search: worst-case time O(log n), assuming sorted input. This implementation sorts the input first, so total time including sorting is O(n log n).
+- also added best,worst and average case time Complexities 
 - The runtime displayed is a measured local execution time and can vary with computer load and input size.
 - This is an educational local demo, not a production server. Do not expose it to the public internet.
