@@ -1,4 +1,4 @@
-# AlgoLab — DSA & AoA Visualizer
+# Algovisual — DSA & AoA Visualizer
 
 A beginner-friendly educational project using C++17, Windows Winsock, HTML, CSS, and JavaScript.
 
