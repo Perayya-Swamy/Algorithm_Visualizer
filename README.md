@@ -1,37 +1,58 @@
-# Algorithm Visualizer 🚀
+# AlgoLab — DSA & AoA Visualizer
 
-Algorithm Visualizer is an interactive web application designed to make learning algorithms easier and more engaging through real-time visualizations and animations.
+A beginner-friendly educational project using C++17, Windows Winsock, HTML, CSS, and JavaScript.
 
-## ✨ Features
+## Features
+- Bubble Sort, Selection Sort, Insertion Sort
+- Linear Search and Binary Search
+- Animated array states with Play / Pause / Prev / Next
+- Comparisons, swaps, runtime measurement, and Big-O complexity
+- Local C++ HTTP server; no third-party backend library required
 
-- Visualize algorithms step by step.
-- Interactive and user-friendly interface.
-- Real-time animations to understand algorithm execution.
-- Learn sorting and searching algorithms.
-- Adjust animation speed and control execution.
-- Understand how algorithms work internally.
+## Requirements
+- Windows
+- A working GCC `g++` compiler (for example, MinGW-w64)
+- A modern browser
 
-## 🎯 Purpose
+## Run
+1. Extract the entire `AlgoLab` folder.
+2. Open Command Prompt in the `AlgoLab` folder.
+3. Run `start-server.bat`.
+4. Keep that terminal open.
+5. Open `web/index.html` in Chrome or Edge.
+6. If the browser blocks the local file from calling the server, run a tiny local static server from the project folder in a second terminal:
+   - `python -m http.server 5500`
+   - Then open `http://127.0.0.1:5500/web/`
+7. The sidebar should say “Connected on port 8080”. Select an algorithm and press Run.
 
-The main goal of this project is to simplify complex algorithm concepts by providing visual and interactive learning experiences.
+## Alternative manual compile
+From the project root:
+```bat
+g++ -std=c++17 -O2 server.cpp -o server.exe -lws2_32
+server.exe
+```
 
-## 🛠️ Technologies Used
+## Test cases
+- Sorting: `38, 12, 27, 5, 44, 19, 31, 8` → sorted output should be `5, 8, 12, 19, 27, 31, 38, 44`.
+- Linear Search: use target `19` → found.
+- Binary Search: use target `44` → found after the server sorts the values.
+- Missing target: use `1000` → not found.
 
-- HTML
-- CSS
-- JavaScript
-- C++
+## Project structure
+```text
+AlgoLab/
+├── server.cpp
+├── start-server.bat
+├── README.md
+└── web/
+    ├── index.html
+    ├── style.css
+    └── app.js
+```
 
-## 🚀 Getting Started
-
-1. Clone this repository.
-2. Open the project folder.
-3. Run the application using your preferred development server.
-
-## 🤝 Contributing
-
-Contributions, suggestions, and feedback are always welcome!
-
-## 📄 License
-
-This project is open source and available for educational purposes. Use it and gain knowledge guys!!
+## Notes for the report
+- Bubble / Selection / Insertion Sort: worst-case time O(n²).
+- Linear Search: worst-case time O(n).
+- Binary Search: worst-case time O(log n), assuming sorted input. This implementation sorts the input first, so total time including sorting is O(n log n).
+- The runtime displayed is a measured local execution time and can vary with computer load and input size.
+- This is an educational local demo, not a production server. Do not expose it to the public internet.

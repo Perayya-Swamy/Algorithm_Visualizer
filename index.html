@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Algovisual — DSA & AoA Visualizer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-icon">A</div>
+          <div>
+            <strong>Algorithm Visualizer</strong
+            ><small>DSA • ALGORITHM ANALYSIS</small>
+          </div>
+        </div>
+        <div class="nav-label">WORKSPACE</div>
+        <a class="nav-item active" href="#visualizer"
+          ><span>▦</span> Visualizer</a
+        >
+        <a class="nav-item" href="#analysis"
+          ><span>◫</span> Complexity analysis</a
+        >
+        <a class="nav-item" href="#source"><span>⌘</span> C++ concepts</a>
+        <div class="sidebar-bottom">
+          <div class="status-dot"></div>
+          <div>
+            <strong>Local C++ engine</strong
+            ><small id="connectionText">Checking connection…</small>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <div class="eyebrow">LEARN BY DOING</div>
+            <h1>Algorithm Visualizer</h1>
+            <p class="subheading">
+              Explore how algorithms work, one step at a time.
+            </p>
+          </div>
+          <div class="top-chip"><span class="live-dot"></span> C++ ENGINE</div>
+        </header>
+
+        <section class="control-panel" id="visualizer">
+          <div class="section-heading">
+            <div>
+              <div class="eyebrow">01 / CONFIGURE</div>
+              <h2>Choose your algorithm</h2>
+            </div>
+            <button class="button secondary" id="randomBtn">
+              ↻ Random data
+            </button>
+          </div>
+          <div class="controls-grid">
+            <label class="field"
+              >ALGORITHM
+              <select id="algorithm">
+                <option value="bubble">Bubble Sort</option>
+                <option value="selection">Selection Sort</option>
+                <option value="insertion">Insertion Sort</option>
+                <option value="linear">Linear Search</option>
+                <option value="binary">Binary Search</option>
+                <option value="array">Array</option>
+                <option value="queue">Queue</option>
+                <option value="stack">Stack</option>
+              </select>
+            </label>
+            <label class="field array-field"
+              >ARRAY VALUES
+              <input
+                id="values"
+                value="38, 12, 27, 5, 44, 19, 31, 8"
+                maxlength="500"
+              />
+            </label>
+            <label class="field target-field" id="targetField"
+              >SEARCH TARGET
+              <input id="target" type="number" value="19" />
+            </label>
+            <button class="button primary run-button" id="runBtn">
+              ▶ Run algorithm
+            </button>
+          </div>
+          <p class="hint">
+            Enter up to 100 integers separated by commas. Binary search sorts
+            the values before searching.
+          </p>
+        </section>
+
+        <section class="visual-card">
+          <div class="section-heading">
+            <div>
+              <div class="eyebrow">02 / VISUALIZE</div>
+              <h2>Execution canvas</h2>
+            </div>
+            <div class="step-count" id="stepCount">Ready to run</div>
+          </div>
+          <div class="chart-wrap">
+            <div class="bar-chart" id="barChart">
+              <div class="empty-state">
+                <div class="empty-icon">⌁</div>
+                <strong>Your visualization starts here</strong
+                ><span>Choose an algorithm and press Run.</span>
+              </div>
+            </div>
+          </div>
+          <div class="chart-footer">
+            <div class="legend">
+              <span><i class="legend-bar"></i> Values</span
+              ><span><i class="legend-bar highlighted"></i> Current step</span>
+            </div>
+            <div class="play-controls">
+              <button class="button secondary small" id="prevBtn">← Prev</button
+              ><button class="button secondary small" id="playBtn">
+                ▶ Play</button
+              ><button class="button secondary small" id="nextBtn">
+                Next →
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="metrics-grid" id="analysis">
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>TIME COMPLEXITY</span><span class="metric-icon">◷</span>
+            </div>
+            <div class="metric-value" id="complexity">—</div>
+            <div class="metric-note">Theoretical growth rate</div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>COMPARISONS</span><span class="metric-icon">⇄</span>
+            </div>
+            <div class="metric-value" id="comparisons">—</div>
+            <div class="metric-note">Value comparisons made</div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>SWAPS</span><span class="metric-icon">⤨</span>
+            </div>
+            <div class="metric-value" id="swaps">—</div>
+            <div class="metric-note">Exchange operations</div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>RUNTIME</span><span class="metric-icon">⚡</span>
+            </div>
+            <div class="metric-value" id="runtime">—</div>
+            <div class="metric-note">Measured in C++ (ms)</div>
+          </article>
+        </section>
+
+        <section class="bottom-grid">
+          <article class="info-card">
+            <div class="eyebrow">ALGORITHM INSIGHT</div>
+            <h2 id="insightTitle">Ready to explore</h2>
+            <p id="explanation">
+              Run an algorithm to see a plain-language explanation of how it
+              works.
+            </p>
+            <div class="complexity-row">
+              <span>Time complexity</span
+              ><strong id="complexityDetail">—</strong>
+            </div>
+            <div class="complexity-row">
+              <span>Space complexity</span
+              ><strong id="spaceDetail">O(1)–O(n)</strong>
+            </div>
+            <div id="searchResult" class="search-result"></div>
+          </article>
+          <article class="info-card" id="source">
+            <div class="eyebrow">C++ CONCEPTS</div>
+            <h2>What is happening?</h2>
+            <div class="concept">
+              <span class="concept-number">01</span>
+              <div>
+                <strong>Input</strong>
+                <p>Your comma-separated values are sent to the C++ server.</p>
+              </div>
+            </div>
+            <div class="concept">
+              <span class="concept-number">02</span>
+              <div>
+                <strong>Processing</strong>
+                <p>
+                  The selected algorithm runs in C++ and counts its operations.
+                </p>
+              </div>
+            </div>
+            <div class="concept">
+              <span class="concept-number">03</span>
+              <div>
+                <strong>Output</strong>
+                <p>
+                  The server returns JSON; JavaScript renders the steps in this
+                  chart.
+                </p>
+              </div>
+            </div>
+          </article>
+        </section>
+        <footer>
+          AlgoLab • Built with C++17, HTML, CSS & JavaScript
+          <span>Educational project</span>
+        </footer>
+      </main>
+    </div>
+    <div class="toast" id="toast"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
