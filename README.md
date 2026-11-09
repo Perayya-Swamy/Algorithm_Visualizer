@@ -15,8 +15,8 @@ A beginner-friendly educational project using C++17, Windows Winsock, HTML, CSS,
 - A modern browser
 
 ## Run
-1. Extract the entire `AlgoLab` folder.
-2. Open Command Prompt in the `AlgoLab` folder.
+1. Extract the entire `Algorithm_Visualizer` folder.
+2. Open Command Prompt in the `Algorithm_Visualizer` folder.
 3. Run `start-server.bat`.
 4. Keep that terminal open.
 5. Open `web/index.html` in Chrome or Edge.
@@ -40,7 +40,7 @@ server.exe
 
 ## Project structure
 ```text
-AlgoLab/
+Algorithm_Visualizer/
 ├── server.cpp
 ├── start-server.bat
 ├── README.md
